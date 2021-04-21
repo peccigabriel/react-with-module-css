@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Produto.module.css';
+import Loading from '../Loading';
 import Head from '../Head';
 import { useParams } from 'react-router-dom';
 
@@ -24,9 +25,9 @@ const Produto = () => {
       }
     }
     fetchData(url);
-  }, [id]);
+  }, [id, url]);
 
-  if (loading) return <div className="loading" />;
+  if (loading) return <Loading />;
   if (error) return <p>{error}</p>;
   if (produto === null) return null;
 
